@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs %> 
+    <title>New Film</title>     
+  </head>
+
+  <body>
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">
+      <% include partials/header.ejs %>  
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; align-items:center;  border-left: 1px solid white ">
+        <div class="container" style="height: 100%; display: flex; align-items:center; justify-content: center; " >
+            <form action="/films/new" method="POST" enctype="multipart/form-data" id='form'>
+                <h2 align="center">New Film:</h2>
+                <div class="form-group" >
+                    <hr style="color: #fff; background-color: #fff; height: 1px; width: 100%;">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title..." required id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="quality">Quality:</label>
+                        <input type="string" class="form-control" name="quality" value="0" min="0" id="quality">
+                    </div>
+                    <div class="form-group">
+                            <label for="length">Length:</label>
+                            <input type="string" class="form-control" name="length" value="0" min="0" id="length">
+                        </div>
+                    <div class="line">
+                        <label>Upload your film </label>
+                        <input type="file" class="form-control" name="film" id="film" accept="film/*" required>
+                    </div>
+                    <div class="line" style="margin-top: 18px;">
+                        <label>Upload your poster </label>
+                        <input type="file" class="form-control" name="poster" id="poster" accept="image/*" required>
+                    </div>
+                    <hr style="color: #fff; background-color: #fff; height: 1px; width: 100%;">
+                    <div class="line" style="margin-top: 10px; line-height: 30px; border-radius: 10px;">
+                      <button type="submit" class="btn btn-outline-success">Upload</button>  
+
+                                                       
+
+
+            </form>
+        </div>        
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+
+             
+             
+       
+          

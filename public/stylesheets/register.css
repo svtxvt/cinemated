@@ -1,0 +1,10 @@
+.container input{
+    width: 100%; 
+    border-radius: 17px; 
+    background: none; 
+    text-align: center; 
+    border: 2px solid #fff; 
+    outline: none; 
+    color: white; 
+    padding: 10px;
+}

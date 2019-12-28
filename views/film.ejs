@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs %>    
+  </head>
+  <body>
+      <title>Film</title>
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">
+      <% include partials/header.ejs %> 
+
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; align-items:center;   flex-direction: column; border-left: 1px solid white ">
+         
+        <div class="container" style="height: 100%; display: flex; align-items:center; justify-content: center;  flex-direction: column;" >
+
+				<h2 align="center"font-size:30px"><u><%= obj.title %></u></h2>
+        <div class="video">
+          <video width="100%" height="auto" poster="<%= obj.poster %>" controls>
+              <source src="<%= obj.link %>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+                <p><b>Quality: </b><%= obj.quality %></p>
+                <p><b>Length: </b><%= obj.length %></p>
+            <p><b>Added: </b><i><%= obj.addedAt %></i></p>
+            <form class="mb-1" action="/collections/add_film/<%= obj.id %>" method="post">
+              <button type="submit" class="btn btn-outline-success btn-block"></i> Add to my collection</button>
+            </form>
+            <% if (user.role === 1) { %>
+              <button class="btn btn-outline-danger btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">Delete</button>
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" style="display: flex; align-content: center; justify-content: center;">
+                  <div class="modal-content" style="width: 50%; display: flex; align-content: center; justify-content: center; text-align: center; ">
+                    <a style="color: #333;">Are you sure?</a>
+                    <div class="modal-footer"> 
+                      <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
+                      <form action="/films/<%= obj.id %>" method="post">
+                        <button type="submit" class="btn btn-outline-danger btn-block"><i class="delete"></i> Delete</button>
+                      </form>                          
+                  </div>
+                </div>
+              </div>
+             </div>
+
+
+            <% } %>
+        </div>           
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+
+             

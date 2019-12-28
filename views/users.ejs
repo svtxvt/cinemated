@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs %> 
+    <title>Users</title>
+    <script defer src="../public/javascripts/ejs.min.js"></script>    
+  </head>
+  <body>   
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center"> 
+
+      <% include partials/header.ejs %>  
+      
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; align-items:center;  border-left: 1px solid white ">
+         
+        <div class="container" style="height: 100%; display: flex; align-items:center; vertical-align: top; flex-direction: column;" >
+
+				<div class="title">
+					<h2 align="center"font-size:30px"><u>Users</u></h2>
+        </div>
+        <form action="/users" method="get" >
+					<div class="form-group">		
+						<input type="text" id="search" placeholder="Search by login..." autocomplete="off" style="height: 55px; border-radius: 10px;">					
+					</div>
+				</form>
+        <div id="dynamic" style="height: 550px;">
+          <div id="list" style="height: 550px;">
+            <table class="table" style="margin-top: 10px; height: 522px;  width: 100%; vertical-align: top; color: #fff;"> 
+              <tr>
+                <th>Login</th>
+                <th>Fullname</th>
+                <th>Registered</th>
+              </tr>
+              <% items.forEach(function(item) { %>
+                <tr>
+                  <td><a href="users/<%= item.id %>"><%= item.login %></a></td>
+                  <td><a href="users/<%= item.id %>"><%= item.fullname %></a></td>
+                  <td ><%= item.registeredAt.toUTCString() %></td>
+                </tr>
+              <% }); %>
+            </table>
+            <hr style="color: #fff; background-color: #fff; height: 0.1px; width: 100%; margin-top: -10px;">
+          </div>
+
+          <div class="center" style="vertical-align: bottom; ">
+                <div class="pagination">                 
+                    <% if(items.length == 0){ %>
+                      <style> .pagination {
+                        opacity: 0;
+                        }</style>
+                      <% }; %>                  
+                  <button id="prev" disabled="true" onclick="Prev()">❮</button>
+              <% for (let i = 1; i <= pages;  i++ ) { %>
+                  <% if (page === i) { %>
+                      <button id="active" onclick="Trigger(this)"><%= i %></button>
+                  <% } else {%>
+                      <button onclick="Trigger(this)"><%= i %></button>
+                  <% } %> 
+              <% } %>
+              <% if (pages < 2) { %>
+                  <button disabled="true">❯</button>
+              <% } else { %>
+                  <button id="next" onclick="Next()" value="<%= pages %>">❯</button>
+              <% } %> 
+              </div> 
+            </div> 
+          </div>
+        </div>
+        <script defer src="../public/javascripts/pagination.js"></script>      
+         
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+
+  </body>
+</html>
+
+             
+             

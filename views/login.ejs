@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs %>
+    <title>Login</title>   
+  </head>
+
+  <body >
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">    
+
+      <% include partials/header.ejs %>  
+      
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; align-items:center;  border-left: 1px solid white ">
+          
+        <div class="container" style="height: 100%; display: flex; align-items:center; justify-content: center; " >
+
+            <form action="/auth/login" id="form" method="POST" style=" display: flex; align-items:center; justify-content: center; flex-direction: column;"> 
+              <h2 align="center">Log in</h2>              
+              <hr style="color: #fff; background-color: #fff; height: 1px; width: 100%;">
+              <div class="alert alert-danger" id="alert" style="display: none"></div>
+                <p>
+                  <input  autocomplete="off" type="text" placeholder="Enter Username" name="username" id="form" maxlength="50" required>
+                </p>
+                <p style="margin-bottom: 0rem;">   
+                  <input  autocomplete="off" type="password" placeholder="Enter Password" name="password" maxlength="50" required>
+                </p>
+              <hr style="color: #fff; background-color: #fff; height: 1px; width: 100%;">
+                <button type="submit" class="btn btn-lg btn-secondary">Log in</button>       
+                <p>
+                  <div class="container signin">
+                  <p style="text-align: center;">Dont have Account? <a href="/auth/register"><ins> Register</ins></a>  || <a href=/auth/github class="fa fa-github"></a></p>
+                  </div>
+                </p>
+            </form>
+        </div>
+        <script src="../public/javascripts/validation.js"></script> 
+        <script src="../public/javascripts/token.js"></script>         
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+
+             
+             
+       
+          

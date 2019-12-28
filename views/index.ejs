@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs %>
+    <title>Cinemated</title>   
+  </head>
+
+  <body >
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">
+      <% include partials/header.ejs %>  
+      <main role="main" class="inner cover" style="height: 80vh; border-right: 1px solid white; display: flex; align-items:center;  border-left: 1px solid white">
+         <div style="display: flex; flex-direction: column; justify-items: center; align-items: center; text-align: center;">
+          <h1 class="cover-heading">Learn and chill with Cinemated</h1>
+          <p class="lead">On this site you can (I hope you can) improve your language skills by watching the best films in different languages.</p>
+          <p class="lead" style=" display: flex; align-items:center; justify-content: center; flex-direction: column;">
+            <% if (user) { %>
+            <a href="/films/" class="btn btn-lg btn-secondary">Chill Out</a>
+            <% } else { %>
+              <a href="/auth/register" class="btn btn-lg btn-secondary">Chill Out</a>
+            <% } %>
+          </p>
+         </div>
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+

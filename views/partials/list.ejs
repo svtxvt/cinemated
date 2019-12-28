@@ -1,0 +1,58 @@
+<% if (items.length === 0) { %>
+    <p>No such <%= entity %></p>
+<% } else {%>
+    <% if (entity === 'users') { %>
+        <table class="table" style="margin-top: 10px; height: 522px; width: 100%; vertical-align: top; color: #fff;"> 
+                <tr>
+                  <th>Login</th>
+                  <th>Fullname</th>
+                  <th>Registered</th>
+                </tr>
+                <% items.forEach(function(item) { %>
+                  <tr>
+                      <td><a href="../users/<%= item._id %>"><%= item.login %></a></td>
+                      <td><a href="../users/<%= item._id %>"><%= item.fullname %></a></td>
+                      <td ><%= new Date(item.registeredAt).toUTCString() %></td>
+                  </tr>
+                <% }); %>
+              </table>
+              <hr style="color: #fff; background-color: #fff; height: 0.1px; width: 100%; margin-top: -10px;">
+              <% } %>
+  <% if (entity === 'films') { %>
+      <ul  style="margin-top: 10px; list-style-type: none; margin-left: 0; height: 780px; padding-left: 0; " >
+        <% items.forEach(function(item) { %>
+        <li >
+            <div class="card" >
+                <a href="../films/<%= item._id %>">
+                
+                <img class="card-img-top" width= "190px" height="300px" style= "width: 190px"  src="<%= item.poster %>" alt="Card image cap">
+                <div class="card-body" style="height: 70px; font-size: 17px; background-color: #333;">
+                  <p class="card-title"><%= item.title %></p>
+                </div></a>
+                </div>
+                <p></p>
+        </li>
+        <% }); %>
+      </ul> 
+      <% } %>
+  <% if (entity === 'collections') { %>
+    <ul  style="margin-top: 10px; list-style-type: none; margin-left: 0; padding-left: 0; height: 600px;" >
+        <% items.forEach(function(item) { %>
+        <li style="width: 190px; height: 360px; ">
+            <div class="card" style="width: 9rem; ">
+                <a href="../films/<%= item.id %>">
+                
+                <img class="card-img-top" width= "160px" height="230px" src="<%= item.poster %>" alt="Card image cap">
+                <div class="card-body" style="height: 50px; font-size: 10px; background-color: #333; display: flex; align-content: center; justify-content: center;">										  			
+                    <form action="/collections/del/<%= item.id %>" method="post" style="margin-top: -15px; height: 50px; width: 160px; margin-left: 0px;">
+                      <button type="submit" class="btn btn-outline-danger"><i class="delete" style="height: 100%; width: 100%; text-align: center; ">Delete</i> </button>
+                    </form>
+                </div></a>
+                </div>
+                <p></p>
+        </li>
+        <% }); %>
+      </ul> 
+
+    <% } %>
+<% } %>

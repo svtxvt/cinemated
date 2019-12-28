@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap&subset=cyrillic-ext" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>API</title>
+    <style>
+            
+            body {
+            background-image: url(https://www.camerax.com/wp-content/uploads/2018/05/880-11401.jpg);
+            background-color: #c7b39b;
+            text-align: center;
+            color:#fff;
+            
+            }
+            * {
+                color: #FFA500;
+            }
+            a {
+                text-decoration: none;
+            }
+            p {
+                
+                font-weight: bold;
+            }
+            table {
+                text-align: center;
+                border-collapse: collapse;
+                
+            }
+            table, th, td {
+                margin: auto; 
+                text-align: center;
+                border: 1px solid #FFA500;
+            }
+
+        </style>
+</head>
+<body>  
+
+       
+  
+
+    <h1>API v1</h1>
+    <p>Hello, thank you for using our service. Please note that in order to use our api<br> you should have the role of administrator. Our api has such features:</p>
+   
+    <ins><h2>Getting users:</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/users</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>page (not required)</td>
+            <td>Get users by page</td>
+        </tr>
+        <tr>
+            <td>search (not required)</td>
+            <td>Get users by title or part of title</td>
+        </tr>
+    </table>
+    <p>Return: users(with pagination)</p>
+    <ins><h2>Adding users:</h2></ins>
+    <p>Method: POST</p>
+    <p>Url: /api/v1/users</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>username</td>
+            <td>Unique string</td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td>Very hard string</td>
+        </tr>
+        <tr>
+            <td>fullname</td>
+            <td>Some string</td>
+        </tr>
+    </table>
+    <p>Return: created user</p>
+    <ins><h2>Getting one user by id:</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/users/:id</p>
+    <p>Params: No params</p>
+    <p>Return: user</p>
+    <ins><h2>Updating one user by id:</h2></ins>
+    <p>Method: PUT</p>
+    <p>Url: /api/v1/users/:id</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>role</td>
+            <td>0(User) or 1(Admin)</td>
+        </tr>
+        <tr>
+            <td>fullname</td>
+            <td>Some string</td>
+        </tr>
+    </table>
+    <p>Return: No content</p>
+    <ins><h2>Deleting one user by id:</h2></ins>
+    <p>Method: DELETE</p>
+    <p>Url: /api/v1/users/:id</p>
+    <p>Params: No params</p>
+    <p>Return: No content</p>
+    <h1 id="films">Films</h1>
+    <ins><h2>Getting films</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/films</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>page (not required)</td>
+            <td>Get films by page</td>
+        </tr>
+        <tr>
+            <td>search (not required)</td>
+            <td>Get films by title or part of title</td>
+        </tr>
+    </table>
+    <p>Return: films(with pagination)</p>
+    <ins><h2>Inserting film</h2></ins>
+    <p>Method: POST</p>
+    <p>Url: /api/v1/films</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>object</td>
+            <td>Film object</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>Some string</td>
+        </tr>
+        <tr>
+            <td>link</td>
+            <td>url to some film</td>
+        </tr>
+        <tr>
+            <td>poster</td>
+            <td>url to some poster</td>
+        </tr>
+    </table>
+    <p>Return: created film</p>
+    <ins><h2>Getting one film by current id</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/films/:id</p>
+    <p>Params: No params</p>
+    <ins><h2>Updating film by current id</h2></ins>
+    <p>Method: PUT</p>
+    <p>Url: /api/v1/films/:id</p>
+    <p>Params:</p>
+    <table>
+            <tr>
+                <td>length</td>
+                <td>positive number</td>
+            </tr>
+            <tr>
+                <td>quality</td>
+                <td>positive number</td>
+            </tr>
+            <tr>
+                <td>title</td>
+                <td>Some string</td>
+            </tr>
+    </table>
+    <p>Return: No content</p>
+    <ins><h2>Deleting film by current id</h2></ins>
+    <p>Method: DELETE</p>
+    <p>Url: /api/v1/films/:id</p>
+    <p>Params: No params</p>
+    <p>Return: No content</p>
+    <h1 id="collections">Collections</h1>
+    <ins><h2>Getting collections</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/collections</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>page (not required)</td>
+            <td>Get collections by page</td>
+        </tr>
+        <tr>
+            <td>search (not required)</td>
+            <td>Get collections by title or part of title</td>
+        </tr>
+    </table>
+    <p>Return: collection(with pagination)</p>
+    <ins><h2>Adding collections</h2></ins>
+    <p>Method: POST</p>
+    <p>Url: /api/v1/collection</p>
+    <p>Params:</p>
+    <table>
+        <tr>
+            <td>collection name</td>
+            <td>Some string</td>
+        </tr>
+    </table>
+    <p>Return: created collection</p>
+    <ins><h2>Getting one collection by current id</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /api/v1/collections/:id</p>
+    <p>Params: No params</p>
+    <ins><h2>Updating one collection by current id</h2></ins>
+    <p>Method: PUT</p>
+    <p>Url: /api/v1/collections/:id</p>
+    <p>Params:</p>
+    <table>
+            <tr>
+                <td>Name</td>
+                <td>Some string</td>
+            </tr>
+            <tr>
+                    <td>FilmsId</td>
+                    <td>Array of films id</td>
+                </tr>
+    </table>
+    <p>Return: No content</p>
+    <ins><h2>Deleting one collection by current id</h2></ins>
+    <p>Method: DELETE</p>
+    <p>Url: /api/v1/collections/:id</p>
+    <p>Params: No params</p>
+    <p>Return: No content</p>
+    <h1 id="account">Account</h1>
+    <ins><h2>Getting users data</h2></ins>
+    <p>Method: GET</p>
+    <p>Url: /developer/v1/</p>
+    <p>Params: No params</p>
+    <p>Return: user that login</p>
+    <h1 id="errors">Errors</h1>
+    <p>400(username is already exist, page less then 0 or greater then pages</p>
+    <p>401(You are not authorize)</p>
+    <p>403(You are not admin)</p>
+    <p>404(Not found)</p>
+    <p>500(DataBase error)</p>
+</body>
+</html>

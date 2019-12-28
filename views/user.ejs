@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <% include partials/head.ejs %> 
+      <title>User</title>   
+  </head>
+  <body>
+      <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">
+      <% include partials/header.ejs %>  
+      
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; align-items:center;  border-left: 1px solid white ">
+          
+        <div class="container" style="height: 100%; display: flex; align-items:center; justify-content: center; " >
+
+        <div class="user" style="display: flex; align-content: center; align-items: center; flex-direction: column;">
+		
+        <img id="user" src="<%= obj.avaUrl || none%>" alt="User avatar" class="userimage">
+      
+				<div class="usertext" style="margin-top: 10px;">
+						<p><b>User role:: </b><%= obj.role %></p>
+						<p><b>User login: </b><%= obj.login %></p>
+						<p><b>Registered at: </b><i><%= obj.registeredAt %></i></p>									
+
+        </div>
+        <% if (user.id === obj.id) { %>
+        
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Update avatar</button>
+
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="color: #333;">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <form action="/profile" method="post" enctype="multipart/form-data" id='form'>
+                <label class="custom-file-upload">Avatar</label>
+                <input type="file" class="form-control" name="ava" id="ava" accept="image/*" required>
+                <button type="button" class="form-control" class="btn btn-outline-danger btn-block" data-dismiss="modal">Close</button>                
+                <button type="submit" class="form-control" class="btn btn-outline-success"><i class="delete"></i>Update</button>
+                </form> 
+              </div>
+            </div>
+          </div>
+          <form action="/auth/logout" method="get">
+            <button type="submit" style="height: auto; margin-top: 10px;" class="btn btn-outline-warning">Log Out</button>
+          </form>
+          <% } %>
+
+        
+				<div>
+            <% if (user.role === 1 && obj.role !== 1) { %>
+              <form action="/users/<%= obj.id %>" method="get">
+                <button class="btn btn-outline-info" type="submit" style="margin-top: 10px;" name="role" value="1"><i class="fas fa-user-secret"></i> Admin</button>
+              </form>               
+              <form action="/users/<%= obj.id %>" method="post" style="margin-top: 10px;">
+                <button type="submit" class="btn btn-outline-danger"><i class="delete" style="height: 100%; width: 100%; text-align: center; ">Delete</i> </button>
+              </form>
+          
+            <% } %>
+          </div>
+				</div>
+		</div>        
+      </main>
+      <% include partials/footer.ejs %>
+    </div>
+  </body>
+</html>
+
+             
+             
+       
+          
+

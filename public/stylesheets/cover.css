@@ -1,0 +1,287 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+ 
+  
+  background-color: #333;
+}
+@media screen and (max-device-width: 640px) {
+  body {height: auto;}
+
+
+ }
+
+
+
+ @media screen and (max-device-width: 640px) {
+  .masthead-brand {text-align: center;}
+ }
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  width: 48em;
+  
+  
+  
+  height: 100%;
+}
+
+.vertical_lines {
+line-break: auto;
+}
+
+
+
+
+
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+
+/*
+ * Footer
+ */
+.mastfoot {
+  color: 333;
+}
+
+.poster{
+  width: 130px;
+  height: 200px;
+}
+
+
+.userimage{
+ 
+  
+  width: 270px; 
+  height: 320px;
+  border-radius: 25px;
+
+}
+
+
+.pagination {
+  
+  
+  vertical-align: bottom;  
+  display: inline-block;
+  background-color: #333;
+  border-top-color: #333;
+  color: #333;
+  
+}
+
+.pagination button {
+  border-radius: 5px;
+  font-size:10px;
+  color: #fff;
+  background-color: #333;
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination button#active {
+  background-color: grey;
+  color: #fff;
+}
+
+.pagination button:hover:not(#active) {background-color: #ddd;} 
+
+
+ul {
+   
+  columns: 4;  
+  -webkit-columns: 4;
+  -moz-columns: 4;
+  
+
+  }
+
+ li {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  
+ } 
+  
+  .card:first-child { margin-top: 0px; }
+
+  #axis:hover .move-down {
+    transform: translate(0,225px);
+    -webkit-transform: translate(0,225px);
+    -o-transform: translate(0,225px);
+    -moz-transform: translate(0,225px);
+}
+.object {
+  position: absolute;
+  transition: all 2s ease-in-out;
+  -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+  -moz-transition: all 2s ease-in-out; /** Firefox **/
+  -o-transition: all 2s ease-in-out; /** Opera **/
+}
+
+@media screen and (max-device-width: 640px) {
+  #axis:hover .move-down {     
+    transform: translate(0,100px);
+    -webkit-transform: translate(0,100px);
+    -o-transform: translate(0,100px);
+    -moz-transform: translate(0,100px);}
+
+    ul {
+  
+      columns: 2;  
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    
+      }
+ }
+
+ td {  
+  vertical-align: top; 
+ }
+
+
+
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+
+.error {
+  width  : 100%;
+  padding: 0;
+ 
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+ 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+.fa {
+  
+  font-size: 30px;
+  height: 30px;
+  width: 26px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: .3rem;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  background-color:#333;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-github {
+  background-color:#333;
+  color: white;
+}

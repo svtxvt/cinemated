@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<% include partials/head.ejs %>
+	<title>Collections</title>
+	<script defer src="../public/javascripts/ejs.min.js"></script>       
+  </head>
+  <body style="height: auto;" >	
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-sm-center">
+	<% include partials/header.ejs %>
+      
+      <main role="main" class="inner cover" style="min-height: 80vh; height: 100%; border-right: 1px solid white; display: flex; flex-direction: column; align-items:center;  border-left: 1px solid white ">
+          
+		<div class="container" style="height: max-content; display: flex; align-items:center; justify-content: center; flex-direction: column;" >
+			
+			<div class="title">
+				<h2 align="center">My favourites</h2>
+			</div>
+			<form action="/collections" method="get" >
+				<div class="form-group">		
+					<input type="text" id="search" placeholder="Search..." autocomplete="off" style="height: 55px; border-radius: 10px;">					
+				</div>
+			</form>
+					<div id="dynamic">
+							<div id="list">
+									<% if (items.length === 0) { %>
+										<p>No films in favourites</p>
+											<style> .pagination {
+											  opacity: 0;
+											  }</style>
+											  
+									<% } else {%>
+										<ul  style="margin-top: 10px; list-style-type: none; margin-left: 0; padding-left: 0; height: 600px;" >
+											<% items.forEach(function(item) { %>
+											<li style="width: 190px; height: 360px; ">
+													<div class="card" style="width: 9rem; ">
+															<a href="../films/<%= item.id %>">
+															
+															<img class="card-img-top" width= "160px" height="230px" src="<%= item.poster %>" alt="Card image cap">
+															<div class="card-body" style="height: 50px; font-size: 10px; background-color: #333; display: flex; align-content: center; justify-content: center;">										  			
+																	<form action="/collections/del/<%= item.id %>" method="post" style="margin-top: -15px; height: 50px; width: 160px; margin-left: 0px;">
+																		<button type="submit" class="btn btn-outline-danger"><i class="delete" style="height: 100%; width: 100%; text-align: center; ">Delete</i> </button>
+																	</form>
+															</div></a>
+														  </div>
+														  <p></p>
+											</li>
+											<% }); %>
+										</ul> 
+									<% } %>
+							</div>
+								<div class="center">
+										<div class="pagination">
+												<button id="prev" disabled="true" onclick="Prev()">❮</button>
+											<% for (let i = 1; i <= pages;  i++ ) { %>
+												<% if (page === i) { %>
+													<button id="active" onclick="Trigger(this)"><%= i %></button>
+												<% } else {%>
+													<button onclick="Trigger(this)"><%= i %></button>
+												<% } %> 
+											<% } %>
+											<% if (pages < 2) { %>
+												<button disabled="true">❯</button>
+											<% } else { %>
+												<button id="next" onclick="Next()" value="<%= pages %>">❯</button>
+											<% } %> 
+											</div> 
+								</div>
+			</div>
+			<script defer src="../public/javascripts/pagination.js"></script>   
+		</main>
+		<% include partials/footer.ejs %>
+	  </div>  
+	</body>
+  </html>
+
+
+          
+
+
+             
+             
+       
+          
+		
+
+
+             
+             
+       
+          
+			
